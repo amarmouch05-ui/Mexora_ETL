@@ -1,0 +1,52 @@
+2026-05-05 01:48:22,459 — INFO — --- PHASE EXTRACT ---
+2026-05-05 01:48:22,693 — INFO — [EXTRACT] commandes      :  50000 lignes extraites
+2026-05-05 01:48:22,705 — INFO — [EXTRACT] clients        :   5100 lignes extraites
+2026-05-05 01:48:22,707 — INFO — [EXTRACT] produits       :     50 lignes extraites
+2026-05-05 01:48:22,708 — INFO — [EXTRACT] regions        :     30 lignes extraites
+2026-05-05 01:48:22,709 — INFO — [EXTRACT] livreurs       :     15 lignes extraites
+2026-05-05 01:48:22,709 — INFO — --- PHASE TRANSFORM ---
+2026-05-05 01:48:22,709 — INFO — [TRANSFORM] commandes    : début avec 50000 lignes
+2026-05-05 01:48:22,727 — INFO — [TRANSFORM] R1 doublons  : 1424 lignes supprimées
+2026-05-05 01:48:25,838 — INFO — [TRANSFORM] R2 dates     : 0 dates invalides supprimées
+2026-05-05 01:48:25,892 — INFO — [TRANSFORM] R3 villes    : 0 villes non reconnues → 'Non renseignée'
+2026-05-05 01:48:25,898 — INFO — [TRANSFORM] R4 statuts   : 0 valeurs non reconnues → 'inconnu'
+2026-05-05 01:48:25,933 — INFO — [TRANSFORM] R5 quantités : 2890 lignes supprimées (quantite <= 0)
+2026-05-05 01:48:25,945 — INFO — [TRANSFORM] R6 prix nuls : 884 commandes test supprimées
+2026-05-05 01:48:25,949 — INFO — [TRANSFORM] R7 livreurs  : 3127 valeurs manquantes → '-1'
+2026-05-05 01:48:25,960 — INFO — [TRANSFORM] commandes    : 50000 → 44802 lignes (5198 supprimées au total)
+2026-05-05 01:48:25,960 — INFO — [TRANSFORM] clients      : début avec 5100 lignes
+2026-05-05 01:48:25,969 — INFO — [TRANSFORM] R1 doublons  : 209 clients en doublon supprimés
+2026-05-05 01:48:25,971 — INFO — [TRANSFORM] R2 sexe      : standardisé → m / f / inconnu
+2026-05-05 01:48:25,975 — INFO — [TRANSFORM] R3 âge       : 103 dates de naissance invalidées
+2026-05-05 01:48:25,980 — INFO — [TRANSFORM] R4 emails    : 4 emails invalides mis à None
+2026-05-05 01:48:25,985 — INFO — [TRANSFORM] R5 villes    : harmonisées via référentiel
+2026-05-05 01:48:25,988 — INFO — [TRANSFORM] clients      : 5100 → 4891 lignes (209 supprimées au total)
+2026-05-05 01:48:25,988 — INFO — [TRANSFORM] produits     : début avec 50 lignes
+2026-05-05 01:48:25,989 — INFO — [TRANSFORM] R1 catégories: normalisées en Title Case
+2026-05-05 01:48:25,991 — INFO — [TRANSFORM] R2 prix null : 2 prix remplacés par la médiane de catégorie
+2026-05-05 01:48:25,992 — INFO — [TRANSFORM] R3 SCD Type2 : 3 produits inactifs marqués avec date_fin
+2026-05-05 01:48:25,992 — INFO — [TRANSFORM] produits     : 50 → 50 lignes (aucune suppression)
+2026-05-05 01:48:26,010 — INFO — [TRANSFORM] segments     : {'Gold': 1515, 'Bronze': 1459, 'Silver': 1414}
+2026-05-05 01:48:26,012 — INFO — --- PHASE BUILD DIMENSIONS ---
+2026-05-05 01:48:26,050 — INFO — [BUILD] dim_temps        : 2192 lignes (2020-01-01 → 2025-12-31)
+2026-05-05 01:48:26,051 — INFO — [BUILD] dim_produit      : 50 lignes
+2026-05-05 01:48:26,057 — INFO — [BUILD] dim_client       : 4891 lignes
+2026-05-05 01:48:26,058 — INFO — [BUILD] dim_region       : 15 lignes
+2026-05-05 01:48:26,060 — INFO — [BUILD] dim_livreur      : 16 lignes (+ 1 livreur inconnu)
+2026-05-05 01:48:26,354 — INFO — [BUILD] fait_ventes      : 44802 → 43342 lignes (1460 sans correspondance dimension)
+2026-05-05 01:48:26,646 — INFO — --- PHASE LOAD → SQLite ---
+2026-05-05 01:48:26,976 — INFO — [LOAD → SQLite] dim_temps            :   2192 lignes
+2026-05-05 01:48:26,991 — INFO — [LOAD → SQLite] dim_produit          :     50 lignes
+2026-05-05 01:48:27,439 — INFO — [LOAD → SQLite] dim_client           :   4891 lignes
+2026-05-05 01:48:27,447 — INFO — [LOAD → SQLite] dim_region           :     15 lignes
+2026-05-05 01:48:27,454 — INFO — [LOAD → SQLite] dim_livreur          :     16 lignes
+2026-05-05 01:48:33,522 — INFO — [LOAD → SQLite] fait_ventes          :  43342 lignes
+2026-05-05 01:48:33,522 — INFO — =======================================================
+2026-05-05 01:48:33,523 — INFO —   TERMINÉ EN 11s → SQLite
+2026-05-05 01:48:33,523 — INFO —   dim_temps    :   2192 lignes
+2026-05-05 01:48:33,523 — INFO —   dim_produit  :     50 lignes
+2026-05-05 01:48:33,523 — INFO —   dim_client   :   4891 lignes
+2026-05-05 01:48:33,523 — INFO —   dim_region   :     15 lignes
+2026-05-05 01:48:33,523 — INFO —   dim_livreur  :     16 lignes
+2026-05-05 01:48:33,523 — INFO —   fait_ventes  :  43342 lignes
+2026-05-05 01:48:33,523 — INFO — =======================================================

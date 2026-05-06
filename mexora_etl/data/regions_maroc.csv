@@ -1,0 +1,31 @@
+code_ville,nom_ville_standard,province,region_admin,zone_geo,population,code_postal
+tanger,Tanger,Fahs-Anjra,Tanger-Tétouan-Al Hoceïma,Nord,950000,90000
+tng,Tanger,Fahs-Anjra,Tanger-Tétouan-Al Hoceïma,Nord,950000,90000
+tnja,Tanger,Fahs-Anjra,Tanger-Tétouan-Al Hoceïma,Nord,950000,90000
+tanja,Tanger,Fahs-Anjra,Tanger-Tétouan-Al Hoceïma,Nord,950000,90000
+tangier,Tanger,Fahs-Anjra,Tanger-Tétouan-Al Hoceïma,Nord,950000,90000
+casablanca,Casablanca,Casablanca,Casablanca-Settat,Centre,3752000,20000
+casa,Casablanca,Casablanca,Casablanca-Settat,Centre,3752000,20000
+dar beida,Casablanca,Casablanca,Casablanca-Settat,Centre,3752000,20000
+rabat,Rabat,Rabat,Rabat-Salé-Kénitra,Centre-Nord,580000,10000
+fes,Fès,Fès,Fès-Meknès,Nord-Est,1150000,30000
+fès,Fès,Fès,Fès-Meknès,Nord-Est,1150000,30000
+fez,Fès,Fès,Fès-Meknès,Nord-Est,1150000,30000
+marrakech,Marrakech,Marrakech,Marrakech-Safi,Centre-Sud,1000000,40000
+marrakesh,Marrakech,Marrakech,Marrakech-Safi,Centre-Sud,1000000,40000
+mkch,Marrakech,Marrakech,Marrakech-Safi,Centre-Sud,1000000,40000
+agadir,Agadir,Agadir-Ida-Outanane,Souss-Massa,Sud,420000,80000
+meknes,Meknès,Meknès,Fès-Meknès,Nord-Est,520000,50000
+meknès,Meknès,Meknès,Fès-Meknès,Nord-Est,520000,50000
+oujda,Oujda,Oujda-Angad,Oriental,Est,400000,60000
+kenitra,Kenitra,Kénitra,Rabat-Salé-Kénitra,Centre-Nord,430000,14000
+kénitra,Kenitra,Kénitra,Rabat-Salé-Kénitra,Centre-Nord,430000,14000
+tetouan,Tétouan,Tétouan,Tanger-Tétouan-Al Hoceïma,Nord,380000,93000
+tétouan,Tétouan,Tétouan,Tanger-Tétouan-Al Hoceïma,Nord,380000,93000
+safi,Safi,Safi,Marrakech-Safi,Atlantique,300000,46000
+el jadida,El Jadida,El Jadida,Casablanca-Settat,Atlantique,200000,24000
+eljadida,El Jadida,El Jadida,Casablanca-Settat,Atlantique,200000,24000
+beni mellal,Béni Mellal,Béni Mellal,Béni Mellal-Khénifra,Centre,220000,23000
+béni mellal,Béni Mellal,Béni Mellal,Béni Mellal-Khénifra,Centre,220000,23000
+nador,Nador,Nador,Oriental,Est,160000,62000
+taza,Taza,Taza,Fès-Meknès,Nord-Est,150000,35000

@@ -1,0 +1,45 @@
+2026-05-04 20:01:10,765 — INFO — ============================================================
+2026-05-04 20:01:10,765 — INFO —   DÉMARRAGE PIPELINE ETL MEXORA
+2026-05-04 20:01:10,765 — INFO — ============================================================
+2026-05-04 20:01:10,765 — INFO — --- PHASE EXTRACT ---
+2026-05-04 20:01:10,875 — INFO — [EXTRACT] commandes      :  50000 lignes extraites
+2026-05-04 20:01:10,886 — INFO — [EXTRACT] clients        :   5100 lignes extraites
+2026-05-04 20:01:10,887 — INFO — [EXTRACT] produits       :     50 lignes extraites
+2026-05-04 20:01:10,888 — INFO — [EXTRACT] regions        :     30 lignes extraites
+2026-05-04 20:01:10,889 — INFO — [EXTRACT] livreurs       :     15 lignes extraites
+2026-05-04 20:01:10,889 — INFO — --- PHASE TRANSFORM ---
+2026-05-04 20:01:10,889 — INFO — [TRANSFORM] commandes    : début avec 50000 lignes
+2026-05-04 20:01:10,902 — INFO — [TRANSFORM] R1 doublons  : 1424 lignes supprimées
+2026-05-04 20:01:13,906 — INFO — [TRANSFORM] R2 dates     : 0 dates invalides supprimées
+2026-05-04 20:01:13,939 — INFO — [TRANSFORM] R3 villes    : 0 villes non reconnues → 'Non renseignée'
+2026-05-04 20:01:13,945 — INFO — [TRANSFORM] R4 statuts   : 0 valeurs non reconnues → 'inconnu'
+2026-05-04 20:01:13,967 — INFO — [TRANSFORM] R5 quantités : 2890 lignes supprimées (quantite <= 0)
+2026-05-04 20:01:13,977 — INFO — [TRANSFORM] R6 prix nuls : 884 commandes test supprimées
+2026-05-04 20:01:13,981 — INFO — [TRANSFORM] R7 livreurs  : 3127 valeurs manquantes → '-1'
+2026-05-04 20:01:13,992 — INFO — [TRANSFORM] commandes    : 50000 → 44802 lignes (5198 supprimées au total)
+2026-05-04 20:01:13,992 — INFO — [TRANSFORM] clients      : début avec 5100 lignes
+2026-05-04 20:01:14,001 — INFO — [TRANSFORM] R1 doublons  : 209 clients en doublon supprimés
+2026-05-04 20:01:14,003 — INFO — [TRANSFORM] R2 sexe      : standardisé → m / f / inconnu
+2026-05-04 20:01:14,007 — INFO — [TRANSFORM] R3 âge       : 103 dates de naissance invalidées
+2026-05-04 20:01:14,009 — ERROR — ERREUR PIPELINE : boolean value of NA is ambiguous
+Traceback (most recent call last):
+  File "/home/claude/mexora_etl/main.py", line 44, in run_pipeline
+    df_cli  = transform_clients(df_cli_raw, df_regions)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/mexora_etl/transform/clean_clients.py", line 63, in transform_clients
+    df["tranche_age"] = pd.cut(
+                        ^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pandas/core/reshape/tile.py", line 281, in cut
+    fac, bins = _bins_to_cuts(
+                ^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pandas/core/reshape/tile.py", line 496, in _bins_to_cuts
+    ids = bins.searchsorted(x_idx, side=side)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pandas/core/base.py", line 1614, in searchsorted
+    return algorithms.searchsorted(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/pandas/core/algorithms.py", line 1305, in searchsorted
+    return arr.searchsorted(value, side=side, sorter=sorter)  # type: ignore[arg-type]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/missing.pyx", line 415, in pandas._libs.missing.NAType.__bool__
+TypeError: boolean value of NA is ambiguous

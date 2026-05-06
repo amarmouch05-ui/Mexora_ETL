@@ -1,0 +1,16 @@
+id_livreur,nom_livreur,type_transport,zone_couverture
+LIV001,Amhal Express,Camionnette,Tanger
+LIV002,Logistica Maroc,Camion,National
+LIV003,Berrada Livraison,Moto,Casablanca
+LIV004,Speed Delivery CasaBlanca,Véhicule léger,Casablanca
+LIV005,Atlas Transport,Camion,National
+LIV006,El Jadida Express,Véhicule léger,El Jadida
+LIV007,Rapid Fès,Moto,Fès
+LIV008,Marrakech Livraison Pro,Véhicule léger,Marrakech
+LIV009,Agadir Sud Transport,Camionnette,Agadir
+LIV010,Nord Express Tétouan,Moto,Tétouan
+LIV011,Rabat Métropole Livraison,Véhicule électrique,Rabat
+LIV012,Oriental Cargo,Camion,Oujda
+LIV013,Meknès Fast,Moto,Meknès
+LIV014,Sahel Transport,Camionnette,Kénitra
+LIV015,Souss Expédition,Camionnette,Souss-Massa

@@ -1,0 +1,55 @@
+2026-05-04 20:01:23,042 — INFO — ============================================================
+2026-05-04 20:01:23,043 — INFO —   DÉMARRAGE PIPELINE ETL MEXORA
+2026-05-04 20:01:23,043 — INFO — ============================================================
+2026-05-04 20:01:23,043 — INFO — --- PHASE EXTRACT ---
+2026-05-04 20:01:23,114 — INFO — [EXTRACT] commandes      :  50000 lignes extraites
+2026-05-04 20:01:23,125 — INFO — [EXTRACT] clients        :   5100 lignes extraites
+2026-05-04 20:01:23,126 — INFO — [EXTRACT] produits       :     50 lignes extraites
+2026-05-04 20:01:23,128 — INFO — [EXTRACT] regions        :     30 lignes extraites
+2026-05-04 20:01:23,128 — INFO — [EXTRACT] livreurs       :     15 lignes extraites
+2026-05-04 20:01:23,129 — INFO — --- PHASE TRANSFORM ---
+2026-05-04 20:01:23,129 — INFO — [TRANSFORM] commandes    : début avec 50000 lignes
+2026-05-04 20:01:23,142 — INFO — [TRANSFORM] R1 doublons  : 1424 lignes supprimées
+2026-05-04 20:01:26,021 — INFO — [TRANSFORM] R2 dates     : 0 dates invalides supprimées
+2026-05-04 20:01:26,053 — INFO — [TRANSFORM] R3 villes    : 0 villes non reconnues → 'Non renseignée'
+2026-05-04 20:01:26,060 — INFO — [TRANSFORM] R4 statuts   : 0 valeurs non reconnues → 'inconnu'
+2026-05-04 20:01:26,072 — INFO — [TRANSFORM] R5 quantités : 2890 lignes supprimées (quantite <= 0)
+2026-05-04 20:01:26,083 — INFO — [TRANSFORM] R6 prix nuls : 884 commandes test supprimées
+2026-05-04 20:01:26,086 — INFO — [TRANSFORM] R7 livreurs  : 3127 valeurs manquantes → '-1'
+2026-05-04 20:01:26,097 — INFO — [TRANSFORM] commandes    : 50000 → 44802 lignes (5198 supprimées au total)
+2026-05-04 20:01:26,097 — INFO — [TRANSFORM] clients      : début avec 5100 lignes
+2026-05-04 20:01:26,105 — INFO — [TRANSFORM] R1 doublons  : 209 clients en doublon supprimés
+2026-05-04 20:01:26,107 — INFO — [TRANSFORM] R2 sexe      : standardisé → m / f / inconnu
+2026-05-04 20:01:26,112 — INFO — [TRANSFORM] R3 âge       : 103 dates de naissance invalidées
+2026-05-04 20:01:26,117 — INFO — [TRANSFORM] R4 emails    : 4 emails invalides mis à None
+2026-05-04 20:01:26,123 — INFO — [TRANSFORM] R5 villes    : harmonisées via référentiel
+2026-05-04 20:01:26,126 — INFO — [TRANSFORM] clients      : 5100 → 4891 lignes (209 supprimées au total)
+2026-05-04 20:01:26,126 — INFO — [TRANSFORM] produits     : début avec 50 lignes
+2026-05-04 20:01:26,127 — INFO — [TRANSFORM] R1 catégories: normalisées en Title Case
+2026-05-04 20:01:26,129 — INFO — [TRANSFORM] R2 prix null : 2 prix remplacés par la médiane de catégorie
+2026-05-04 20:01:26,131 — INFO — [TRANSFORM] R3 SCD Type2 : 3 produits inactifs marqués avec date_fin
+2026-05-04 20:01:26,131 — INFO — [TRANSFORM] produits     : 50 → 50 lignes (aucune suppression)
+2026-05-04 20:01:26,141 — INFO — [TRANSFORM] segments     : {}
+2026-05-04 20:01:26,142 — INFO — --- PHASE BUILD DIMENSIONS ---
+2026-05-04 20:01:26,180 — INFO — [BUILD] dim_temps        : 2192 lignes (2020-01-01 → 2025-12-31)
+2026-05-04 20:01:26,182 — INFO — [BUILD] dim_produit      : 50 lignes
+2026-05-04 20:01:26,186 — INFO — [BUILD] dim_client       : 4891 lignes
+2026-05-04 20:01:26,188 — INFO — [BUILD] dim_region       : 15 lignes
+2026-05-04 20:01:26,189 — INFO — [BUILD] dim_livreur      : 16 lignes (+ 1 livreur inconnu)
+2026-05-04 20:01:26,496 — INFO — [BUILD] fait_ventes      : 44802 → 43342 lignes (1460 sans correspondance dimension)
+2026-05-04 20:01:26,497 — INFO — --- PHASE LOAD ---
+2026-05-04 20:01:26,792 — INFO — [LOAD] dim_temps            :   2192 lignes chargées (replace)
+2026-05-04 20:01:26,805 — INFO — [LOAD] dim_produit          :     50 lignes chargées (replace)
+2026-05-04 20:01:27,240 — INFO — [LOAD] dim_client           :   4891 lignes chargées (replace)
+2026-05-04 20:01:27,247 — INFO — [LOAD] dim_region           :     15 lignes chargées (replace)
+2026-05-04 20:01:27,253 — INFO — [LOAD] dim_livreur          :     16 lignes chargées (replace)
+2026-05-04 20:01:33,234 — INFO — [LOAD] fait_ventes          :  43342 lignes chargées
+2026-05-04 20:01:33,234 — INFO — ============================================================
+2026-05-04 20:01:33,234 — INFO —   PIPELINE TERMINÉ EN 10s
+2026-05-04 20:01:33,235 — INFO —   dim_temps    :   2192 lignes
+2026-05-04 20:01:33,235 — INFO —   dim_produit  :     50 lignes
+2026-05-04 20:01:33,235 — INFO —   dim_client   :   4891 lignes
+2026-05-04 20:01:33,235 — INFO —   dim_region   :     15 lignes
+2026-05-04 20:01:33,235 — INFO —   dim_livreur  :     16 lignes
+2026-05-04 20:01:33,235 — INFO —   fait_ventes  :  43342 lignes
+2026-05-04 20:01:33,236 — INFO — ============================================================

@@ -1,0 +1,55 @@
+2026-05-05 01:37:02,865 — INFO — =======================================================
+2026-05-05 01:37:02,865 — INFO —   PIPELINE ETL MEXORA → SQLite
+2026-05-05 01:37:02,865 — INFO — =======================================================
+2026-05-05 01:37:02,865 — INFO — --- PHASE EXTRACT ---
+2026-05-05 01:37:03,122 — INFO — [EXTRACT] commandes      :  50000 lignes extraites
+2026-05-05 01:37:03,137 — INFO — [EXTRACT] clients        :   5100 lignes extraites
+2026-05-05 01:37:03,138 — INFO — [EXTRACT] produits       :     50 lignes extraites
+2026-05-05 01:37:03,140 — INFO — [EXTRACT] regions        :     30 lignes extraites
+2026-05-05 01:37:03,141 — INFO — [EXTRACT] livreurs       :     15 lignes extraites
+2026-05-05 01:37:03,141 — INFO — --- PHASE TRANSFORM ---
+2026-05-05 01:37:03,141 — INFO — [TRANSFORM] commandes    : début avec 50000 lignes
+2026-05-05 01:37:03,169 — INFO — [TRANSFORM] R1 doublons  : 1424 lignes supprimées
+2026-05-05 01:37:06,495 — INFO — [TRANSFORM] R2 dates     : 0 dates invalides supprimées
+2026-05-05 01:37:06,537 — INFO — [TRANSFORM] R3 villes    : 0 villes non reconnues → 'Non renseignée'
+2026-05-05 01:37:06,545 — INFO — [TRANSFORM] R4 statuts   : 0 valeurs non reconnues → 'inconnu'
+2026-05-05 01:37:06,578 — INFO — [TRANSFORM] R5 quantités : 2890 lignes supprimées (quantite <= 0)
+2026-05-05 01:37:06,591 — INFO — [TRANSFORM] R6 prix nuls : 884 commandes test supprimées
+2026-05-05 01:37:06,596 — INFO — [TRANSFORM] R7 livreurs  : 3127 valeurs manquantes → '-1'
+2026-05-05 01:37:06,611 — INFO — [TRANSFORM] commandes    : 50000 → 44802 lignes (5198 supprimées au total)
+2026-05-05 01:37:06,611 — INFO — [TRANSFORM] clients      : début avec 5100 lignes
+2026-05-05 01:37:06,621 — INFO — [TRANSFORM] R1 doublons  : 209 clients en doublon supprimés
+2026-05-05 01:37:06,624 — INFO — [TRANSFORM] R2 sexe      : standardisé → m / f / inconnu
+2026-05-05 01:37:06,630 — INFO — [TRANSFORM] R3 âge       : 103 dates de naissance invalidées
+2026-05-05 01:37:06,636 — INFO — [TRANSFORM] R4 emails    : 4 emails invalides mis à None
+2026-05-05 01:37:06,643 — INFO — [TRANSFORM] R5 villes    : harmonisées via référentiel
+2026-05-05 01:37:06,647 — INFO — [TRANSFORM] clients      : 5100 → 4891 lignes (209 supprimées au total)
+2026-05-05 01:37:06,647 — INFO — [TRANSFORM] produits     : début avec 50 lignes
+2026-05-05 01:37:06,648 — INFO — [TRANSFORM] R1 catégories: normalisées en Title Case
+2026-05-05 01:37:06,650 — INFO — [TRANSFORM] R2 prix null : 2 prix remplacés par la médiane de catégorie
+2026-05-05 01:37:06,651 — INFO — [TRANSFORM] R3 SCD Type2 : 3 produits inactifs marqués avec date_fin
+2026-05-05 01:37:06,651 — INFO — [TRANSFORM] produits     : 50 → 50 lignes (aucune suppression)
+2026-05-05 01:37:06,675 — INFO — [TRANSFORM] segments     : {'Gold': 1515, 'Bronze': 1459, 'Silver': 1414}
+2026-05-05 01:37:06,676 — INFO — --- PHASE BUILD DIMENSIONS ---
+2026-05-05 01:37:06,724 — INFO — [BUILD] dim_temps        : 2192 lignes (2020-01-01 → 2025-12-31)
+2026-05-05 01:37:06,727 — INFO — [BUILD] dim_produit      : 50 lignes
+2026-05-05 01:37:06,734 — INFO — [BUILD] dim_client       : 4891 lignes
+2026-05-05 01:37:06,736 — INFO — [BUILD] dim_region       : 15 lignes
+2026-05-05 01:37:06,737 — INFO — [BUILD] dim_livreur      : 16 lignes (+ 1 livreur inconnu)
+2026-05-05 01:37:07,086 — INFO — [BUILD] fait_ventes      : 44802 → 43342 lignes (1460 sans correspondance dimension)
+2026-05-05 01:37:07,087 — INFO — --- PHASE LOAD ---
+2026-05-05 01:37:07,460 — INFO — [LOAD] dim_temps            :   2192 lignes chargées
+2026-05-05 01:37:07,479 — INFO — [LOAD] dim_produit          :     50 lignes chargées
+2026-05-05 01:37:08,018 — INFO — [LOAD] dim_client           :   4891 lignes chargées
+2026-05-05 01:37:08,027 — INFO — [LOAD] dim_region           :     15 lignes chargées
+2026-05-05 01:37:08,035 — INFO — [LOAD] dim_livreur          :     16 lignes chargées
+2026-05-05 01:37:15,104 — INFO — [LOAD] fait_ventes          :  43342 lignes chargées
+2026-05-05 01:37:15,104 — INFO — =======================================================
+2026-05-05 01:37:15,104 — INFO —   TERMINÉ EN 12s → SQLite
+2026-05-05 01:37:15,104 — INFO —   dim_temps    :   2192 lignes
+2026-05-05 01:37:15,105 — INFO —   dim_produit  :     50 lignes
+2026-05-05 01:37:15,105 — INFO —   dim_client   :   4891 lignes
+2026-05-05 01:37:15,105 — INFO —   dim_region   :     15 lignes
+2026-05-05 01:37:15,105 — INFO —   dim_livreur  :     16 lignes
+2026-05-05 01:37:15,105 — INFO —   fait_ventes  :  43342 lignes
+2026-05-05 01:37:15,105 — INFO — =======================================================
